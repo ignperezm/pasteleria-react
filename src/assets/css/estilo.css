@@ -1,0 +1,145 @@
+/*REACT + VITE ABAJO------------------------------------------------*/
+/*REACT + VITE ABAJO------------------------------------------------*/
+/*REACT + VITE ABAJO------------------------------------------------*/
+
+/*Barra Nav---------------------------------------------INICIO*/
+.top-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f9eac3;
+  padding: 20px 0px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.top-bar nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.acciones a {
+  color: #b85c5c;
+  text-decoration: none;
+  margin: 0 15px;
+}
+
+.top-bar img { /*--Logo--*/
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  height: 80px;
+}
+/*Barra Nav------------------------------------------------FIN*/
+
+
+/*Footer comun------------------------------------------INICIO*/
+.footer-social {
+  background-color: #f9eac3;
+  color: #ecf0f1;
+  padding: 30px 0 15px;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  left: 0;
+  right: 0;
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #9f957d;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-logo {
+  height: 140px;
+  width: auto;
+  margin-top: -93px;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0px 3px 6px rgba(255, 157, 59, 0.15));
+}
+
+.footer-brand p {
+  margin: 0;
+  color: #9f957d;
+  font-style: italic;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 10px;
+  background-color: #9f957d;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.social-links a:hover {
+  background-color: #746e5d;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  color: #9f957d;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+
+/*Codigo titulo y mapa seccion--*/
+.map-section h3 {
+  color: #9f957d;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: italic; 
+}
+
+/*Codigo para que sea responsivo--*/
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .footer-brand {
+    flex-direction: column;
+  }
+  
+  .social-links {
+    gap: 15px;
+  }
+}
+/*Footer comun---------------------------------------------FIN*/
