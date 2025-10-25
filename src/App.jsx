@@ -5,7 +5,7 @@ import './App.css'; //importa estilos
 //imports propios
 import BarraNav from "./components/BarraNav.jsx";
 import Footer from "./components/Footer.jsx";
-
+import Contacto from './components/Contacto.jsx';
 
 function App() {
   const [count, setCount] = useState(0)
