@@ -12,15 +12,16 @@ export default function BarraNav() {
                     </a>
                 </div>
                 <nav>
-                    <a href="productos.html">Productos</a>
-                    <a href="nosotros.html">Nosotros</a>
-                    <a href="blogs.html">Blogs</a>
+                    <a href="/">Home</a>
+                    <a href="/productos">Productos</a>
+                    <a href="/nosotros">Nosotros</a>
+                    <a href="/blogs">Blogs</a>
                     <a href="/contacto">Contacto</a>
                 </nav>
                 <div className="acciones">
-                    <a href="login.html">Iniciar sesión</a> |
-                    <a href="registro.html">Registrar usuario</a> |
-                    <a href="carrito.html" className="carrito">Carrito 0</a>
+                    <a href="/login">Iniciar sesión</a> |
+                    <a href="/registro">Registrar usuario</a> |
+                    <a href="/carrito" className="carrito">Carrito 0</a>
                 </div>
             </div>
         </header>
