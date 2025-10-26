@@ -8,6 +8,9 @@ import Home from './components/Home.jsx';
 import Contacto from './components/Contacto.jsx';
 import Blogs from "./components/Blogs.jsx";
 import Productos from "./components/catalogoProductos.jsx";
+import Login from './components/login.jsx';
+import Registro from './components/Registro.jsx';
+import Nosotros from './components/Nosotros.jsx';
 import { Route,Routes,BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
@@ -29,6 +32,9 @@ function App() {
         <Route path='/contacto' element={<Contacto/>}/>
         <Route path='/productos' element={<Productos/>}/>
         <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/login' element={<Login/>}/> 
+        <Route path='/registro' element={<Registro/>}/> 
+        <Route path='/nosotros' element={<Nosotros/>}/> 
 
 
 
