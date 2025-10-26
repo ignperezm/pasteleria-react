@@ -89,7 +89,7 @@
 
 .social-links a {
   display: inline-block;
-  padding: 10px;
+  padding: 0px;
   background-color: #9f957d;
   border-radius: 50%;
   transition: all 0.3s ease;
@@ -116,7 +116,13 @@
   margin: 0;
 }
 
-
+/*Fondo home repetido--*/
+body {
+  background-image: url("/img/fondoHome.png");
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  background-attachment: fixed;
+}
 /*Codigo titulo y mapa seccion--*/
 .map-section h3 {
   color: #9f957d;
@@ -124,6 +130,17 @@
   font-size: 1rem;
   font-weight: normal;
   font-style: italic; 
+}
+
+.map-section {
+  text-align: center;
+}
+
+.map-line {
+  display: flex;
+  align-items: center; /* Alinea verticalmente las 3 cosas */
+  justify-content: center;
+  gap: 10px;
 }
 
 /*Codigo para que sea responsivo--*/
@@ -143,3 +160,11 @@
   }
 }
 /*Footer comun---------------------------------------------FIN*/
+
+/*carrusel evaluar para aliminar luego*/
+.carousel {
+  margin-bottom: 60px; 
+}
+
+
+
