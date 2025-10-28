@@ -38,6 +38,17 @@
 .top-bar {
   z-index: 1000; /*Para que nav quede sobre todo*/
 }
+
+/*Color enlaces navegacion---------*/
+.top-bar nav a {
+    color: #8d6154;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.top-bar nav a:hover {
+    color: #ffffff;
+}
 /*Barra Nav------------------------------------------------FIN*/
 
 
