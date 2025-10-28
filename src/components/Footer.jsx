@@ -12,15 +12,15 @@ export default function Footer() {
         </div>
         
         <div className="social-links">
-          <a href="#" aria-label="Facebook">📘</a>
-          <a href="#" aria-label="Instagram">📷</a>
-          <a href="#" aria-label="Twitter">🐦</a>
-          <a href="#" aria-label="LinkedIn">💼</a>
+          <a href="https://www.duoc.cl/" aria-label="Facebook">📓</a>
+          <a href="https://github.com/ignperezm/pasteleria-react" aria-label="Instagram">🔗</a>
+          <a href="/Contacto" aria-label="Twitter">✉</a>
+          <a href="https://www.instagram.com/duocuc_sedepadrealonsodeovalle/" aria-label="LinkedIn">📸</a>
         </div>
 
         {/* Sección del Mapa */}
         <div className="map-section">
-          <h3>Visítanos en: Padre Alonso de Ovalle 1586, Santiago</h3>
+          <h3>Visítanos en: Padre Alonso de Ovalle 1586, Santiago ❧</h3>
           <div className="map-line">
           <img src="/img/borde2.png" alt="" className="map-decoration left" />
           <iframe

@@ -3,9 +3,41 @@ import '../assets/css/estilo.css';
 function Home() {
   return (
     <main>
+  <div className="imgcss-bienvenida">
+    <img src="/img/pastel_index_01.jpg" alt="" className="img-bienvenida" />
+    <img src="/img/Logo.png" alt="Logo" className="logo-bienvenida" />
+    <div class="texto-bienvenida">Pasteleria ganadora del récord Guinness.</div>
+  </div>
+
+  <div className="franja-marcas">
+        <div className="marcas-contenedor">
+          <div className="marcas-slide">
+            <img src="/img/marca-01.png" alt="Marca 1" className="logo-marca" />
+            <img src="/img/marca-02.png" alt="Marca 2" className="logo-marca" />
+            <img src="/img/marca-03.png" alt="Marca 3" className="logo-marca" />
+            <img src="/img/marca-04.png" alt="Marca 4" className="logo-marca" />
+            <img src="/img/marca-05.png" alt="Marca 5" className="logo-marca" />
+            <img src="/img/marca-01.png" alt="Marca 1" className="logo-marca" />
+            <img src="/img/marca-02.png" alt="Marca 2" className="logo-marca" />
+            <img src="/img/marca-03.png" alt="Marca 3" className="logo-marca" />
+            <img src="/img/marca-04.png" alt="Marca 4" className="logo-marca" />
+            <img src="/img/marca-05.png" alt="Marca 5" className="logo-marca" />
+            <img src="/img/marca-01.png" alt="Marca 1" className="logo-marca" />
+            <img src="/img/marca-02.png" alt="Marca 2" className="logo-marca" />
+            <img src="/img/marca-03.png" alt="Marca 3" className="logo-marca" />
+            <img src="/img/marca-04.png" alt="Marca 4" className="logo-marca" />
+            <img src="/img/marca-05.png" alt="Marca 5" className="logo-marca" />
+            <img src="/img/marca-01.png" alt="Marca 1" className="logo-marca" />
+            <img src="/img/marca-02.png" alt="Marca 2" className="logo-marca" />
+            <img src="/img/marca-03.png" alt="Marca 3" className="logo-marca" />
+            <img src="/img/marca-04.png" alt="Marca 4" className="logo-marca" />
+            <img src="/img/marca-05.png" alt="Marca 5" className="logo-marca" />
+          </div>
+        </div>
+      </div>
       {/* Título para los productos en carrusel */}
       <section className="titulo-seccion">
-        <h2>Productos Destacados</h2>
+        <h2>Productos destacados por nuestros clientes ❧</h2>
       </section>
 
       {/* Tarjetas */}
@@ -93,33 +125,21 @@ function Home() {
 
       {/* Título para el carrusel */}
       <section className="titulo-seccion">
-        <h2>Quizás te interese..</h2>
+        <h2>Acompaña tus pasteles con algo de lectura ❧</h2>
       </section>
 
-      {/* Carrusel */}
-      <div className="carousel-wrapper">
-        <div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-          <div className="carousel-inner">
-            <div className="carousel-item active" data-bs-interval="2000">
-              <img src="img/banner1.jpg" className="d-block w-100" alt="torta1" />
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img src="img/banner2.jpg" className="d-block w-100" alt="torta2" />
-            </div>
-            <div className="carousel-item" data-bs-interval="3000">
-              <img src="img/banner3.jpg" className="d-block w-100" alt="torta3" />
-            </div>
-          </div>
-          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
-          </button>
-          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
-          </button>
+      <a href="/Nosotros" className="enlace-salida">
+        <div className="imgcss-salida">
+          <img src="/img/pastel_index_02.jpg" alt="" className="img-salida" />
+          <img src="/img/Logo.png" alt="Logo" className="logo-salida" />
+          <div className="texto-salida">Entérate aquí como ganamos el récord Guinness.</div>
         </div>
-      </div>
+      </a>
+
+      <section className="texto-final">
+        <h2>-ˋˏ ༻❁༺ ˎˊ-</h2>
+      </section>
+  
     </main>
   );
 }

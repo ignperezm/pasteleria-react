@@ -34,6 +34,10 @@
   left: 20px;
   height: 80px;
 }
+
+.top-bar {
+  z-index: 1000; /*Para que nav quede sobre todo*/
+}
 /*Barra Nav------------------------------------------------FIN*/
 
 
@@ -166,5 +170,180 @@ body {
   margin-bottom: 60px; 
 }
 
+/*Imagen de bienvenida------------------------------------------INICIO*/
+.imgcss-bienvenida {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 400px;
+  overflow: hidden;
+  margin-top: -50px;
+  position: relative;
+}
+
+.imgcss-bienvenida::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(28, 22, 2, 0.5);
+  z-index: 1;
+}
+
+.img-bienvenida {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 65%;
+  position: relative;
+  z-index: 0;
+}
+
+/*Texto de bienvenida---------*/
+.texto-bienvenida {
+  position: absolute;
+  top: 60%;
+  left: 49%;
+  transform: translate(-50%, -50%);
+  color: rgb(241, 231, 219);
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  z-index: 2; /* Mayor que la capa negra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: Arial, sans-serif;
+}
+/*Logo de bienvenida---------*/
+.logo-bienvenida {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1100px;
+  height: auto;
+  z-index: 2;
+}
+/*Imagen de bienvenida---------------------------------------------FIN*/
 
 
+/*Marcas en movimiento------------------------------------------INICIO*/
+.franja-marcas {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  padding: 15px 0; /* 30px * 0.5 = 15px */
+  overflow: hidden;
+  position: relative;
+}
+
+.marcas-contenedor {
+  width: 100%;
+  overflow: hidden;
+}
+
+.marcas-slide {
+  display: flex;
+  animation: desplazar 20s linear infinite;
+  gap: 25px; /* 50px * 0.5 = 25px */
+}
+
+.logo-marca {
+  height: 30px; /* 60px * 0.5 = 30px */
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.logo-marca:hover {
+  opacity: 1;
+}
+
+@keyframes desplazar {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/*Marcas en movimiento---------------------------------------------FIN*/
+
+/*Estilo para texto títulos-------------------------------------INICIO*/
+.titulo-seccion h2 {
+  color: #8d6154;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+  margin: 16px 0 20px 0;
+}
+.texto-final h2 {
+  color: #8d6154;
+  font-family: 'Georgia', serif;
+  font-style: italic;
+  font-weight: normal;
+  text-align: center;
+  margin: 0px 0 80px 0;
+}
+/*Estilo para texto títulos----------------------------------------FIN*/
+
+/*Imagen de salida----------------------------------------------INICIO*/
+.imgcss-salida {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 450px;
+  overflow: hidden;
+  margin-top: 0px;
+  margin-bottom: 80px;
+  position: relative;
+}
+
+.imgcss-salida::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(120, 72, 40, 0.1);
+  z-index: 1;
+}
+
+.img-salida {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 20%;
+  position: relative;
+  z-index: 0;
+}
+
+/*Texto de salidaa---------*/
+.texto-salida {
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  color: #fff8ef;
+  font-size: 2rem;
+  text-align: center;
+  z-index: 2; /* Mayor que la capa negra */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-family: 'Georgia', serif;
+  font-style: italic;
+}
+/*Logo de salida---------*/
+.logo-salida {
+  position: absolute;
+  top: 40%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+  max-width: 350px;
+  height: auto;
+  z-index: 2;
+}
+/*Imagen de salida......---------------------------------------------FIN*/
