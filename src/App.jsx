@@ -7,12 +7,12 @@ import BarraNav from "./components/BarraNav.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from './components/Home.jsx';
 import Contacto from './components/Contacto.jsx';
-import Productos from "./components/catalogoProductos.jsx";
 import Blogs from "./components/Blogs.jsx";
 import Login from './components/login.jsx';
 import Registro from './components/Registro.jsx';
 import Nosotros from './components/Nosotros.jsx';
-
+import Productos from './components/Productos.jsx';
+import Detalle from './components/Detalle.jsx';
 function App() {
   const [count, setCount] = useState(0);
 
@@ -29,6 +29,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/productos" element={<Productos />} />
+            <Route path="/detalle/:id" element={<Detalle />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={<Registro />} />
