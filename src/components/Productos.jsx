@@ -25,21 +25,23 @@ function CatalogoProductos() {
   const totalProductos = productosFiltrados.length;
 
   return (
-    <main className="contenedor">
-      {/* Filtros para productos */}
-      <ProductosFiltros
-        categoriasSeleccionadas={categorias}
-        personasSeleccionadas={personas}
-        onChange={handleFiltersChange}
-      />
+    <main className="pagina-productos">
+      <div className="contenedor">
+        {/* Filtros para productos */}
+        <ProductosFiltros
+          categoriasSeleccionadas={categorias}
+          personasSeleccionadas={personas}
+          onChange={handleFiltersChange}
+        />
 
-      {/* Catálogo de productos */}
-      <section className="catalogo">
-        <h2>
-          Tortas <span>{totalProductos} productos</span>
-        </h2>
-        <RenderProductos productos={productosFiltrados} />
-      </section>
+        {/* Catálogo de productos */}
+        <section className="catalogo">
+          <h2>
+            Tortas <span>{totalProductos} productos</span>
+          </h2>
+          <RenderProductos productos={productosFiltrados} />
+        </section>
+      </div>
     </main>
   );
 }
