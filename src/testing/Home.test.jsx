@@ -47,4 +47,22 @@ test("TEST 2: Checkeo de img + atributos", () => {
 
 //TESTING NUMERO 3 - HOME
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+test("TEST 3: links y marcas comerciales", () => {
+
+  render(<Home />);
+  
+  ///// Revisa enlace
+  const linkNosotros = screen.getByRole("link", { name: /Entérate aquí como ganamos el récord Guinness/i });
+  expect(linkNosotros).toBeInTheDocument();
+  expect(linkNosotros).toHaveAttribute("href", "/Nosotros");
+  
+  ///// Verifica cant. marcas
+   const logosMarcas = screen.getAllByAltText(/marca [0-5]/i); //+mas numero
+  expect(logosMarcas.length).toBeGreaterThan(5);
+  
+  ///// Que se vean
+  logosMarcas.forEach(logo => {
+    expect(logo).toBeVisible();
+  });
+});
 

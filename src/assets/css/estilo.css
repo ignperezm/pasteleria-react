@@ -358,3 +358,103 @@ body {
   z-index: 2;
 }
 /*Imagen de salida......---------------------------------------------FIN*/
+
+
+/*Sección NOSOTROS----------------------------------------------INICIO*/
+.nosotros-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.nosotros-section h1 {
+    text-align: center;
+    color: #8d6154;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+
+.nosotros-section h2 {
+    color: #8d6154;
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-weight: normal;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.seccion-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+    position: relative;
+}
+
+.nosotros-articulo {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.nosotros-articulo p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #5a5a5a;
+}
+
+.borde-decorativo {
+    max-height: 250px;
+    opacity: 0.7;
+}
+
+.borde-decorativo.izquierda {
+    transform: scaleX(-1); /* Voltear horizontalmente para la izquierda */
+}
+
+.imagen-container {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.imagen-nosotros {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+/*Justifica parrafos---------*/
+.nosotros-articulo p {
+    margin-bottom: 20px;
+    line-height: 1.7;
+    color: #5a5a5a;
+    font-size: 1.1rem;
+    text-align: justify;
+    text-align-last: center;
+}
+/*Fotos mismo ancho---------*/
+.imagen-nosotros {
+    max-width: 80%;
+    width: 600px; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    object-fit: cover; 
+}
+
+/*Responsivo---------*/
+@media (max-width: 768px) {
+    .seccion-contenedor {
+        flex-direction: column;
+    }
+    
+    .borde-decorativo {
+        display: none; /*oculta bordes*/
+    }
+    
+    .nosotros-articulo {
+        padding: 0;
+    }
+}
+/*Sección NOSOTROS-------------------------------------------------FIN*/
