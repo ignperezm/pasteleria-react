@@ -6,7 +6,7 @@ function Home() {
   <div className="imgcss-bienvenida">
     <img src="/img/pastel_index_01.jpg" alt="" className="img-bienvenida" />
     <img src="/img/Logo.png" alt="Logo" className="logo-bienvenida" />
-    <div class="texto-bienvenida">Pasteleria ganadora del récord Guinness.</div>
+    <div className="texto-bienvenida">Pastelería ganadora del récord Guinness.</div>
   </div>
 
   <div className="franja-marcas">
