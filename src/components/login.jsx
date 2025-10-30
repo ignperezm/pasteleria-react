@@ -1,93 +1,103 @@
 import React, { useState } from "react";
+import { loginService } from './loginServicio';
 import '../assets/css/estilo.css';
-import '../assets/css/login.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-        showPassword: false,
-    });
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
 
-    // Manejar cambios en los inputs
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
-    // Mostrar/ocultar contraseña
-    const togglePassword = () => {
-        setFormData((prev) => ({ ...prev, showPassword: !prev.showPassword }));
-    };
-
-    // Validación del formulario
     const handleSubmit = (e) => {
-        e.preventDefault();
+    e.preventDefault();
+    setError("");
 
-        if (!formData.email || !formData.password) {
-            alert("Por favor, completa todos los campos.");
-            return;
+    if (!email || !password) {
+        setError("Por favor completa todos los campos.");
+        return;
+    }
+
+    if (loginService.verificarCredenciales(email, password)) {
+        ///// DETECTA LOGIN Y USUARIO TIPO
+        if (email === "admin@duoc.cl") {
+            alert("✅ Bienvenido Administrador");
+            navigate("/admin");
+          
+        } else {
+            alert(`✅ Bienvenido ${email}`);
+            navigate("/home");
         }
+    } else {
+        setError("❌ Credenciales incorrectas ❌");
+    }
+};
 
-        // Aquí podrías agregar la lógica de login real
-        alert(`Inicio de sesión exitoso ✅\nBienvenido ${formData.email}`);
-        console.log(formData);
-    };
-
-    // Reset del formulario
     const handleReset = () => {
-        setFormData({ email: "", password: "", showPassword: false });
+        setEmail("");
+        setPassword("");
+        setShowPassword(false);
+        setError("");
     };
 
     return (
-        <section id="formulario" className="login-section">
-            <h1>Iniciar sesión</h1>
-            <p className="texto-arriba">
-                ¿No tienes cuenta? <a href="/registro">Regístrate aquí</a>
-            </p>
+        <div className="login-contenedor">
+            <img src="/img/borde1.png" alt="" className="borde-decorativo izquierda" />
+            <section className="login-section">
+                <h1>Iniciar sesión</h1>
+                <p className="texto-arriba">
+                    ¿No tienes cuenta? <a href="/registro">Regístrate aquí</a>
+                </p>
 
-            <form onSubmit={handleSubmit} onReset={handleReset}>
-                <label htmlFor="email">Correo electrónico:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="ejemplo@duoc.cl"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                />
+                {error && <div className="error-message">{error}</div>}
 
-                <label htmlFor="password">Contraseña:</label>
-                <div className="password-container">
-                    <input
-                        type={formData.showPassword ? "text" : "password"}
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                    <button
-                        type="button"
-                        className="btn-toggle"
-                        onClick={togglePassword}
-                    >
-                        {formData.showPassword ? "Ocultar" : "Mostrar"}
-                    </button>
-                </div>
+                <form onSubmit={handleSubmit} onReset={handleReset}>
+                    <div className="form-group">
+                        <label>Correo electrónico:</label>
+                        <input
+                            type="email"
+                            placeholder="test@duoc.cl"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </div>
 
-                <input type="submit" value="Iniciar sesión" className="btn-guardar" />
-                <input type="reset" value="Limpiar" className="btn-limpiar" />
+                    <div className="form-group">
+                        <label>Contraseña:</label>
+                        <div className="password-container">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="duoc123"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                            />
+                            <button
+                                type="button"
+                                className="btn-toggle"
+                                onClick={() => setShowPassword(!showPassword)}
+                            >
+                                {showPassword ? "🚫" : "🧿"}
+                            </button>
+                        </div>
+                    </div>
 
-                <div className="texto-links">
-                    <p><a href="/admin_login">Iniciar sesión como Administrador</a></p>
-                    <p><a href="#">¿Olvidó su contraseña?</a></p>
-                </div>
-            </form>
-        </section>
+                    <div className="form-actions">
+                        <button type="submit" className="btn-guardar">
+                            Iniciar sesión
+                        </button>
+                        <button type="reset" className="btn-limpiar">
+                            Limpiar
+                        </button>
+                    </div>
+
+                    <div className="texto-links">
+                        <p><a href="#">¿Olvidó su contraseña?</a></p>
+                    </div>
+                </form>
+            </section>
+            <img src="/img/borde1.png" alt="" className="borde-decorativo derecha" />
+        </div>
     );
 }
 

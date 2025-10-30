@@ -13,6 +13,9 @@ import Registro from './components/Registro.jsx';
 import Nosotros from './components/Nosotros.jsx';
 import Productos from './components/Productos.jsx';
 import Detalle from './components/Detalle.jsx';
+import Admin from './components/Admin.jsx'
+
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -27,6 +30,8 @@ function App() {
           {/* Rutas de páginas */}
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/admin" element={<Admin />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/detalle/:id" element={<Detalle />} />
