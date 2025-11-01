@@ -57,3 +57,40 @@ describe("Página Admin", () => {
     
   });
 });
+
+//TESTING NUMERO 3 - SIMULACRO GESTION PRODUCTO
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+test("TEST 3: completar formulario save producto", () => {
+
+    ///// mocking basico necesario
+    const mockAlert = vi.fn();
+    global.alert = mockAlert;
+
+    render(
+      <BrowserRouter>
+        <Admin />
+      </BrowserRouter>
+    );
+
+    ///// clickea boton 1
+    const btnProductos = screen.getByRole('button', { name: /gestionar productos/i });
+    fireEvent.click(btnProductos);
+
+    ///// chequeo por placeholder y rol boton
+    const nombreInput = screen.getByPlaceholderText(/nombre del producto/i);
+    const precioInput = screen.getByPlaceholderText(/precio/i);
+    const descripcionInput = screen.getByPlaceholderText(/descripción/i);
+    const btnGuardar = screen.getByRole('button', { name: /💾 guardar/i });
+
+    ///// rellena con texto generico
+    fireEvent.change(nombreInput, { target: { value: "Torta de Prueba" } });
+    fireEvent.change(precioInput, { target: { value: "25000" } });
+    fireEvent.change(descripcionInput, { target: { value: "Descripción de prueba" } });
+
+    ///// dispara el guardado
+    fireEvent.click(btnGuardar);
+
+    ///// verifica mensaje
+    expect(mockAlert).toHaveBeenCalledWith("✅ Producto guardado exitosamente");
+    
+});

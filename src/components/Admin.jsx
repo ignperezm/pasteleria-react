@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../assets/css/estilo.css';
 import { loginService } from './loginServicio';
+import { productosService } from './productoServicio';
 
 function Admin() {
     const [metrics] = useState({
@@ -9,17 +10,16 @@ function Admin() {
         pedidosPendientes: { total: '12', urgentes: '2' }
     });
 
-    const [productos] = useState([
-        { nombre: 'Cheesecake Sin Azúcar', precio: 47000, stock: 15, vendidos: 142 },
-        { nombre: 'Tiramisú Clásico', precio: 5500, stock: 8, vendidos: 89 },
-        { nombre: 'Torta Sin Azúcar de Naranja', precio: 48000, stock: 12, vendidos: 203 },
-        { nombre: 'Tarta de Santiago', precio: 6000, stock: 5, vendidos: 67 }
-    ]);
-
     /* BOTONES ADMIN FUNCION */
-
+    const [productos, setProductos] = useState([]);
     const [modalActivo, setModalActivo] = useState(null);
     const [formData, setFormData] = useState({});
+    
+    // ✅ CARGAR PRODUCTOS AL INICIAR
+    useEffect(() => {
+        const productosCargados = productosService.obtenerMasVendidos();
+        setProductos(productosCargados);
+    }, []);
 
     const abrirModal = (tipo) => {
         setModalActivo(tipo);
@@ -46,8 +46,17 @@ function Admin() {
                 alert('❌ Completa todos los campos');
                 return;
             }
-            // ✅ LLAMAR AL SERVICIO REAL (necesitas productosService)
-            // productosService.agregarProducto({...});
+            // ✅ LLAMAR AL SERVICIO REAL 
+            productosService.agregarProducto({
+                nombre: formData.nombre,
+                precio: formData.precio,
+                descripcion: formData.descripcion
+            });
+            
+            // ✅ ACTUALIZAR LA LISTA
+            const productosActualizados = productosService.obtenerMasVendidos();
+            setProductos(productosActualizados);
+            
             alert('✅ Producto guardado exitosamente');
         }
         cerrarModal();
@@ -75,8 +84,13 @@ const eliminar = () => {
             }
             if (!window.confirm(`¿Estás seguro de eliminar el producto "${formData.nombre}"?`)) return;
             
-            // ✅ LLAMAR AL SERVICIO REAL (necesitas productosService)
-            // productosService.eliminarProducto(formData.nombre);
+            // ✅ LLAMAR AL SERVICIO REAL
+            productosService.eliminarProducto(formData.nombre);
+            
+            // ✅ ACTUALIZAR LA LISTA
+            const productosActualizados = productosService.obtenerMasVendidos();
+            setProductos(productosActualizados);
+            
             alert('✅ Producto eliminado exitosamente');
         }
         cerrarModal();
@@ -255,7 +269,7 @@ const eliminar = () => {
 
 
 
-
+        
 
 
 
