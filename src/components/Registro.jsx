@@ -3,60 +3,36 @@ import '../assets/css/estilo.css';
 import '../assets/css/registro.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import './Registro.logic.js'; // Importa la lógica antes de usarla
 
 function Registro() {
-    const [formData, setFormData] = useState({
-        nombre: "",
-        apellido: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        showPassword: false,
-        showConfirmPassword: false
-    });
+    const [formData, setFormData] = useState(window.RegistroLogic.initialState());
 
     // Manejar cambios en los inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
+        setFormData((prev) => window.RegistroLogic.handleChange(prev, name, value));
     };
 
     // Mostrar/ocultar contraseña
     const togglePassword = (field) => {
-        setFormData((prev) => ({
-            ...prev,
-            [field]: !prev[field],
-        }));
+        setFormData((prev) => window.RegistroLogic.togglePassword(prev, field));
     };
 
     // Validar y enviar el formulario
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (!formData.nombre || !formData.apellido || !formData.email || !formData.password || !formData.confirmPassword) {
-            alert("Por favor completa todos los campos.");
+        const result = window.RegistroLogic.validateSubmit(formData);
+        if (!result.ok) {
+            alert(result.message);
             return;
         }
-
-        if (formData.password !== formData.confirmPassword) {
-            alert("Las contraseñas no coinciden.");
-            return;
-        }
-
-        alert(`Registro exitoso ✅\nBienvenido/a ${formData.nombre} ${formData.apellido}`);
+        alert(result.message);
         console.log(formData);
     };
 
     const handleReset = () => {
-        setFormData({
-            nombre: "",
-            apellido: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
-            showPassword: false,
-            showConfirmPassword: false
-        });
+        setFormData(window.RegistroLogic.resetForm());
     };
 
     return (
