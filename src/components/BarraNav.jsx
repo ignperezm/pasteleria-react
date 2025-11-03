@@ -21,7 +21,7 @@ export default function BarraNav() {
                 <div className="acciones">
                     <a href="/login">Iniciar sesión</a> |
                     <a href="/registro">Registrar usuario</a> |
-                    <a href="/carrito" className="carrito">Carrito 0</a>
+                    <a href="/carrito" className="carrito">Carrito</a>
                 </div>
             </div>
         </header>

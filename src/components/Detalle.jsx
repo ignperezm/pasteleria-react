@@ -1,7 +1,10 @@
+// src/pages/Detalle.jsx
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { productos } from "../components/dataProductos";
+import ImagenProducto from "../components/ImagenProducto";
+import Recomendados from "../components/Recomendados";
+import PopupCarrito from "../components/PopupCarrito";
 import "../assets/css/detalle.css";
 
 function Detalle() {
@@ -20,7 +23,6 @@ function Detalle() {
     if (existente) existente.cantidad += qty;
     else carrito.push({ id: producto.id, cantidad: qty });
     localStorage.setItem("carrito", JSON.stringify(carrito));
-    // Feedback sencillo con popup
     setMostrarPopup(true);
   };
 
@@ -38,14 +40,7 @@ function Detalle() {
     <>
       <main className="detalle-container">
         <div className="detalle-imagen">
-          {(() => {
-            const imagenSrc = producto.imagen?.startsWith("/")
-              ? producto.imagen
-              : `/${producto.imagen}`;
-            return (
-              <img id="detalle-imagen" src={imagenSrc} alt={producto.nombre} />
-            );
-          })()}
+          <ImagenProducto src={producto.imagen} alt={producto.nombre} />
         </div>
 
         <div className="detalle-info">
@@ -71,51 +66,13 @@ function Detalle() {
         </div>
       </main>
 
-      {/* Productos recomendados simples */}
-      <section className="recomendados">
-        <h3>Productos Recomendados</h3>
-        <div className="grid">
-          {([3, 8, 2]
-            .filter((rid) => rid !== Number(id))
-            .map((rid) => productos.find((p) => p.id === rid))
-            .filter(Boolean)
-          ).map((rec) => {
-            const imagenSrc = rec.imagen?.startsWith("/") ? rec.imagen : `/${rec.imagen}`;
-            return (
-              <div key={rec.id} className="card">
-                <img src={imagenSrc} alt={rec.nombre} />
-                <h4>{rec.nombre}</h4>
-                <p>${Number(rec.precio).toLocaleString("es-CL")} CLP</p>
-                <Link to={`/detalle/${rec.id}`} className="btn_detalle">Ver Detalles</Link>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <Recomendados productos={productos} actualId={id} />
 
-      {/* Popup sencillo post-agregado */}
       {mostrarPopup && (
-        <div id="popup-carrito" className="popup-oculto" style={{ display: "flex" }}>
-          <div className="popup-contenido">
-            {(() => {
-              const imagenSrc = producto.imagen?.startsWith("/") ? producto.imagen : `/${producto.imagen}`;
-              return <img id="popup-imagen" src={imagenSrc} alt={producto.nombre} />;
-            })()}
-            <h4 id="popup-nombre">{producto.nombre}</h4>
-            <p id="popup-precio">${Number(producto.precio).toLocaleString("es-CL")} CLP</p>
-            <p>¿Qué deseas hacer?</p>
-            <div style={{ display: "flex", gap: "8px", justifyContent: "center" }}>
-              <button className="btn btn-outline-primary" onClick={() => setMostrarPopup(false)}>
-                Seguir comprando
-              </button>
-              <Link to="/carrito" className="btn btn-success" onClick={() => setMostrarPopup(false)}>
-                Ir al carrito
-              </Link>
-            </div>
-          </div>
-        </div>
+        <PopupCarrito producto={producto} onClose={() => setMostrarPopup(false)} />
       )}
     </>
   );
 }
+
 export default Detalle;

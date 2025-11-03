@@ -14,6 +14,7 @@ import Nosotros from './components/Nosotros.jsx';
 import Productos from './components/Productos.jsx';
 import Detalle from './components/Detalle.jsx';
 import Admin from './components/Admin.jsx'
+import Carrito from './components/Carrito.jsx'
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
             <Route path="/admin" element={<Admin />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/productos" element={<Productos />} />
+            <Route path="/carrito" element={<Carrito />} />
             <Route path="/detalle/:id" element={<Detalle />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/login" element={<Login />} />

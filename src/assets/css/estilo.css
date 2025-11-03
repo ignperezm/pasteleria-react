@@ -29,10 +29,9 @@
 }
 
 .top-bar img { /*--Logo--*/
-  position: absolute;
-  top: -10px;
-  left: 20px;
-  height: 80px;
+  position: static;
+  height: 70px;
+  margin-left: 20px;
 }
 
 .top-bar {
