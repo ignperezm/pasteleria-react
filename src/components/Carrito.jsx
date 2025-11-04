@@ -1,11 +1,14 @@
 // src/components/Carrito.jsx
 import React, { useEffect, useState } from "react";
 import { productos } from "./dataProductos";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import CompraExitosa from "./CompraExitosa";
 
 const Carrito = () => {
   const [carrito, setCarrito] = useState([]);
   const [mensajeCompra, setMensajeCompra] = useState("");
+  const [mostrarExito, setMostrarExito] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const raw = localStorage.getItem("carrito");
@@ -33,6 +36,7 @@ const Carrito = () => {
     setMensajeCompra("¡Gracias por tu compra! Tu pedido ha sido procesado.");
     localStorage.removeItem("carrito");
     setCarrito([]);
+    setMostrarExito(true);
   };
 
   return (
@@ -104,6 +108,9 @@ const Carrito = () => {
           <div className="alert alert-success mt-4 text-center" role="alert">
             {mensajeCompra}
           </div>
+        )}
+        {mostrarExito && (
+          <CompraExitosa onFinish={() => navigate("/")} />
         )}
       </section>
     </main>

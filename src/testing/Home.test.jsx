@@ -2,13 +2,18 @@
 import { render, screen } from "@testing-library/react";
 import { describe, test, expect } from "vitest";
 import Home from "../components/Home";
+import { MemoryRouter } from "react-router-dom";
 
 //TESTING NUMERO 1 - HOME
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 describe("Pruebas de render", () => {
   test("TEST 1: haremos get by text", () => {
 
-    render(<Home />);
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
     
     ///// Dar texto a buscar
     const textoRecord = screen.getByText(/Pastelería ganadora del récord Guinness/i);
@@ -29,7 +34,11 @@ describe("Pruebas de render", () => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 test("TEST 2: Checkeo de img + atributos", () => {
 
-  render(<Home />);
+  render(
+    <MemoryRouter>
+      <Home />
+    </MemoryRouter>
+  );
   
   ///// revisa si hay imagenes + descripción
   const imagenesProductos = screen.getAllByAltText(/torta sin azúcar de naranja|tiramisú clásico|cheesecake sin azúcar|tarta de santiago/i);
@@ -49,12 +58,16 @@ test("TEST 2: Checkeo de img + atributos", () => {
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 test("TEST 3: links y marcas comerciales", () => {
 
-  render(<Home />);
+  render(
+    <MemoryRouter>
+      <Home />
+    </MemoryRouter>
+  );
   
   ///// Revisa enlace
   const linkNosotros = screen.getByRole("link", { name: /Entérate aquí como ganamos el récord Guinness/i });
   expect(linkNosotros).toBeInTheDocument();
-  expect(linkNosotros).toHaveAttribute("href", "/Nosotros");
+  expect(linkNosotros).toHaveAttribute("href", "/nosotros");
   
   ///// Verifica cant. marcas
    const logosMarcas = screen.getAllByAltText(/marca [0-5]/i); //+mas numero

@@ -1,4 +1,5 @@
 import '../assets/css/estilo.css';
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -58,7 +59,7 @@ function Home() {
                 <p className="card-text">
                   Deliciosa torta sabor naranja natural. Perfecta para quienes buscan opciones sin azúcar.
                 </p>
-                <a href="detalle.html?id=7" className="btn btn-damasco">Ir al producto</a>
+                <Link to="/detalle/7" className="btn btn-damasco">Ir al producto</Link>
               </div>
             </div>
           </div>
@@ -77,7 +78,7 @@ function Home() {
                 <p className="card-text">
                   Exquisito tiramisú tradicional italiano. Capas de café y crema que conquistan el paladar.
                 </p>
-                <a href="detalle.html?id=6" className="btn btn-damasco">Ir al producto</a>
+                <Link to="/detalle/6" className="btn btn-damasco">Ir al producto</Link>
               </div>
             </div>
           </div>
@@ -96,7 +97,7 @@ function Home() {
                 <p className="card-text">
                   Suave cheesecake sin azúcar añadido. Ideal para compartir y disfrutar sin culpa.
                 </p>
-                <a href="detalle.html?id=8" className="btn btn-damasco">Ir al producto</a>
+                <Link to="/detalle/8" className="btn btn-damasco">Ir al producto</Link>
               </div>
             </div>
           </div>
@@ -115,7 +116,7 @@ function Home() {
                 <p className="card-text">
                   Tarta tradicional de almendra con un sabor auténtico. Delicia típica de la pastelería española.
                 </p>
-                <a href="detalle.html?id=10" className="btn btn-damasco">Ir al producto</a>
+                <Link to="/detalle/10" className="btn btn-damasco">Ir al producto</Link>
               </div>
             </div>
           </div>
@@ -128,13 +129,13 @@ function Home() {
         <h2>Acompaña tus pasteles con algo de lectura ❧</h2>
       </section>
 
-      <a href="/Nosotros" className="enlace-salida">
+      <Link to="/nosotros" className="enlace-salida">
         <div className="imgcss-salida">
           <img src="/img/pastel_index_02.jpg" alt="" className="img-salida" />
           <img src="/img/Logo.png" alt="Logo" className="logo-salida" />
           <div className="texto-salida">Entérate aquí como ganamos el récord Guinness.</div>
         </div>
-      </a>
+      </Link>
 
       <section className="texto-final">
         <h2>-ˋˏ ༻❁༺ ˎˊ-</h2>

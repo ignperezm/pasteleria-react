@@ -15,7 +15,7 @@ import Productos from './components/Productos.jsx';
 import Detalle from './components/Detalle.jsx';
 import Admin from './components/Admin.jsx'
 import Carrito from './components/Carrito.jsx'
-
+import DesplazarArriba from './components/DesplazarArriba.jsx'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="fondo-home">
       <Router>
+        <DesplazarArriba />
         {/* Barra de navegación siempre visible */}
         <BarraNav />
 
@@ -36,6 +37,7 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/productos" element={<Productos />} />
             <Route path="/carrito" element={<Carrito />} />
+            
             <Route path="/detalle/:id" element={<Detalle />} />
             <Route path="/blogs" element={<Blogs />} />
             <Route path="/login" element={<Login />} />
